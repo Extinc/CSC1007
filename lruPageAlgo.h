@@ -1,0 +1,8 @@
+//
+// Created by LIM KEI YIANG on 20/2/22.
+//
+
+#ifndef OSPROJ_LRUPAGEALGO_H
+#define OSPROJ_LRUPAGEALGO_H
+
+#endif //OSPROJ_LRUPAGEALGO_H
