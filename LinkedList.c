@@ -83,30 +83,125 @@ void delete(LinkedList *list, int pos) {
     temp->next = node;
 
 }
-// PRINTING OF LINKEDLIST
-void printList(struct Node *head)
-{
-    while (head != NULL) {
-        printf("%d ", head->data);
-        head= head->next;
-    }
-    printf("\n");
-}
+
 
 int isEmpty(struct Node *head) {
     return 0;
 }
 
 void EmptyList(LinkedList *list) {
+
+
     struct Node *temp_head, *temp_tail, *node;
 
     // Store the head
     temp_head = list->head;
     temp_tail = list->tail;
     int i;
+
     if(list != NULL){
         while (list->head != NULL){
             delete(list, 0);
         }
     }
+
 }
+
+int search(LinkedList *list, int searchval) {
+    struct Node *node;
+    node = list->head;
+    int count = 0;
+    while (node != NULL){
+        if (node->data == searchval){
+            return count;
+        }
+        node = node->next;
+        count++;
+    }
+    return -1;
+}
+
+int get(LinkedList *list, int pos) {
+    struct Node *node;
+    node = list->head;
+
+    int count = 0;
+    while (node != NULL){
+        if(count == pos){
+            return node->data;
+        }
+        node = node->next;
+        count++;
+    }
+    return -1;
+}
+int getIndex(LinkedList *list, int value) {
+    if(list->head == NULL){
+        return -1;
+    }
+
+    struct Node *node;
+    node = list->head;
+
+    int count = 0;
+    while (node != NULL){
+        if(node->data == value){
+            return count;
+        }
+        node = node->next;
+        count++;
+    }
+    return -1;
+}
+int getSize(LinkedList *list) {
+    struct Node *node;
+    node = list->head;
+    int count = 0;
+    while (node != NULL){
+        count++;
+        node = node->next;
+    }
+    return count;
+}
+// PRINTING OF LINKEDLIST
+void printList(LinkedList *list)
+{
+    struct Node *node = list->head;
+    while (node != NULL) {
+        printf("%d ", node->data);
+        node= node->next;
+    }
+    printf("\n");
+}
+void printStep(LinkedList *list, int framesize) {
+
+    struct Node *node = list->head;
+    int count = 0;
+    while (node != NULL) {
+        printf("%d\t", node->data);
+        node= node->next;
+        count++;
+    }
+
+    while (count < framesize){
+        printf("%d\t", -1);
+        count++;
+    }
+    printf("\n");
+}
+
+void replace(LinkedList *list, int value, int index) {
+    struct Node *node;
+    node = list->head;
+    int count = 0;
+    while(node != NULL){
+        if(count == index){
+            node->data = value;
+        }
+        count++;
+        node = node->next;
+    }
+
+}
+
+
