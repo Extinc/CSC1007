@@ -54,3 +54,4 @@ dkms.conf
 #CLION File to Exclude
 cmake-build-debug
 CMakeLists.txt
+.idea
