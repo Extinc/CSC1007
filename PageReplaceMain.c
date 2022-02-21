@@ -11,7 +11,6 @@ int main();
 int main() {
     char size[MAX] =  {};
     char *refStr = size;
-    int reflist[30] = {};
     int options = 0;
     int no_of_frames = 0, i;
     LinkedList *refll = malloc(sizeof(LinkedList));
@@ -20,12 +19,12 @@ int main() {
     printf("\t1. First in first out (FIFO) page replacement algorithm\n");
     printf("\t2. Optimal page replacement algorithm\n");
     printf("\t3. Least recently used (LRU) page replacement algorithm\n");
-    printf("Enter the options (1, 2 or 3):");
+    printf("Enter the options (1, 2 or 3): ");
 
     scanf("%d", &options);
     fflush(stdin);
 
-    printf("Enter the number of Frames : \n");
+    printf("Enter the number of Frames : ");
     scanf("%d", &no_of_frames);
     fflush(stdin);
 
@@ -38,8 +37,14 @@ int main() {
         }
     }
 
+    if (options == 1){
 
-    LRUPageReplacement(refll, no_of_frames);
+    }else if(options == 2){
+
+    }else if(options == 3){
+        LRUPageReplacement(refll, no_of_frames);
+    }
+
     EmptyList(refll);
 
     free(refll);
@@ -64,7 +69,7 @@ void LRUPageReplacement(LinkedList *data, int fsize) {
             if(size < fsize){
                 // When it is not full and contains a value check if value exist
                 insert(memframe, pageval);
-                printf("STEP %d :\t", fault_count);
+                printf("STEP %d :\t", fault_count + 1);
                 insert(LRU, pageval);
                 printStep(memframe, fsize);
             }else{
@@ -72,7 +77,7 @@ void LRUPageReplacement(LinkedList *data, int fsize) {
                 int indexofobj = getIndex(memframe, get(LRU,0));
                 replace(memframe, pageval, indexofobj);
 
-                printf("STEP %d :\t", fault_count);
+                printf("STEP %d :\t", fault_count + 1);
                 indexofobj = getIndex(LRU, get(LRU,0));
                 delete(LRU,indexofobj);
                 insert(LRU, pageval);
@@ -92,6 +97,7 @@ void LRUPageReplacement(LinkedList *data, int fsize) {
     printf("\n");
     printf("Number of Fault : %d ",fault_count);
     temp = NULL;// UNLINK
+    EmptyList(LRU);
     EmptyList(memframe);
     free(memframe);
 }
