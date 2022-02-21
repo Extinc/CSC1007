@@ -20,5 +20,7 @@ typedef struct {
 void delete(LinkedList *list, int pos);
 void insert(LinkedList *list, int value);
 void insertAt(LinkedList *list, int pos, int value);
+int isEmpty(struct Node *head);
+void EmptyList(LinkedList *list); // Used to Empty & free all the nodes
 void printList(struct Node *head);
 #endif //OSPROJ_LINKEDLIST_H

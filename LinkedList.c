@@ -1,9 +1,8 @@
 //
-// Created by LIM KEI YIANG on 21/2/22.
+// SinglyLinkedList
 //
 
 #include "LinkedList.h"
-
 
 void insert(LinkedList *list, int value) {
     struct Node *newnode;
@@ -23,14 +22,7 @@ void insert(LinkedList *list, int value) {
     list->tail = newnode;
 }
 
-void printList(struct Node *head)
-{
-    while (head != NULL) {
-        printf("%d ", head->data);
-        head= head->next;
-    }
-    printf("\n");
-}
+
 // pos : index of where it should be inserted
 void insertAt(LinkedList *list, int pos, int value) {
     struct Node *node;
@@ -90,4 +82,31 @@ void delete(LinkedList *list, int pos) {
 
     temp->next = node;
 
+}
+// PRINTING OF LINKEDLIST
+void printList(struct Node *head)
+{
+    while (head != NULL) {
+        printf("%d ", head->data);
+        head= head->next;
+    }
+    printf("\n");
+}
+
+int isEmpty(struct Node *head) {
+    return 0;
+}
+
+void EmptyList(LinkedList *list) {
+    struct Node *temp_head, *temp_tail, *node;
+
+    // Store the head
+    temp_head = list->head;
+    temp_tail = list->tail;
+    int i;
+    if(list != NULL){
+        while (list->head != NULL){
+            delete(list, 0);
+        }
+    }
 }
