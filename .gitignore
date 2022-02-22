@@ -55,3 +55,6 @@ dkms.conf
 cmake-build-debug
 CMakeLists.txt
 .idea
+Test.c
+temptest1.c
+input.txt
