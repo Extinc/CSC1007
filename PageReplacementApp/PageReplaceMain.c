@@ -39,7 +39,7 @@ int main() {
     }
 
     if (options == 1){
-        FIFOPageReplacement(refll, no_of_frames)
+        FIFOPageReplacement(refll, no_of_frames);
     }else if(options == 2){
 
     }else if(options == 3){
