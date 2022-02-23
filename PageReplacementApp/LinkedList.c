@@ -6,7 +6,7 @@
 
 void insert(LinkedList *list, int value) {
     struct Node *newnode;
-    newnode = (struct node *) malloc(sizeof(struct Node));
+    newnode = (struct Node *) malloc(sizeof(struct Node));
 
     newnode->data = value;
     newnode->next = NULL;
@@ -26,7 +26,7 @@ void insert(LinkedList *list, int value) {
 // pos : index of where it should be inserted
 void insertAt(LinkedList *list, int pos, int value) {
     struct Node *node;
-    node = (struct node *) malloc(sizeof(struct Node));
+    node = (struct Node *) malloc(sizeof(struct Node));
     struct Node *curr = list->head;
 
     node->data = value;
