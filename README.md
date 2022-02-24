@@ -2,6 +2,6 @@
 
 Coursework 2022
 
-Features Required:
-Q1. KERNEL MODULE & C program to communicate
-Q2. C Program for Page Replacement Algorithm
+Features Required:<br/>
+Q1. KERNEL MODULE & C program to communicate<br/>
+Q2. C Program for Page Replacement Algorithm<br/>
