@@ -37,7 +37,7 @@ int main() {
             insert(refll,(int) (*(refStr + i) - '0'));
         }
     }
-
+    printf("test");
     if (options == 1){
         FIFOPageReplacement(refll, no_of_frames);
     }else if(options == 2){

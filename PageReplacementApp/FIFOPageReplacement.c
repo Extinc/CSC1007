@@ -23,19 +23,16 @@ void FIFOPageReplacement(LinkedList *data, int fsize) {
                 insert(memframe, pageval);
                 printf("STEP %d :\t", fault_count + 1);
                 printStep(memframe, fsize);
-                printf("\nno val and space\n");
             }else{
                 // WHen frames have been filled up to maximum
                 delete(memframe,0);
-                replace(memframe, pageval,getIndex(memframe, -1));
+                insert(memframe, pageval);
                 printf("STEP %d :\t", fault_count + 1);
                 printStep(memframe, fsize);
-                printf("\nno val no space\n");
             }
             fault_count++;
         }else{
             // If value exist in memory
-            printf("\nhave val\n");
         }
         i++;
         temp = temp->next;
