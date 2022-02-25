@@ -22,7 +22,7 @@ void FIFOPageReplacement(LinkedList *data, int fsize) {
             if(size < fsize){
                 // When it is not full and contains a value check if value exist
                 insert(memframe, pageval);
-                printf("STEP %d :\t", fault_count + 1);
+                printf("STEP %d\t:\t", fault_count + 1);
                 printStep(memframe, fsize);
             }else{
                 // WHen frames have been filled up to maximum
