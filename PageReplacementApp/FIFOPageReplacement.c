@@ -29,7 +29,7 @@ void FIFOPageReplacement(LinkedList *data, int fsize) {
                 replace(memframe,FI, pageval);
                 printf("STEP %d :\t", fault_count + 1);
                 printStep(memframe, fsize);
-                if (FI < 3){
+                if (FI < fsize-1){
                     FI++;
                 } else{
                     FI =0;
