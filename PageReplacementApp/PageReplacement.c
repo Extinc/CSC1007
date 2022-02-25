@@ -4,41 +4,55 @@
 
 #include "PageReplacement.h"
 
-void LRUPageReplacement(LinkedList *data, int fsize) {
+void LRUPageReplacement(LinkedList *data, int no_of_frames) {
     struct Node *temp = data->head;
     LinkedList *LRU = malloc(sizeof(LinkedList)); // To store and check for Least Recently Used
     LinkedList *memframe = malloc(sizeof(LinkedList));
     int i, pageval, fault_count = 0;
     int size, exist;
     i = 0;
+
+    // Loop through the LINKEDLIST
     while (temp != NULL){
         pageval = temp->data;
 
+        // Search for the value to check if it exist in the Memory Frame
         exist = search(memframe, pageval);
         if(exist == -1){
             // Value does not exist in memory
             // Get the size of memory frame filled
             size = getSize(memframe);
-            if(size < fsize){
+            if(size < no_of_frames){
                 // When it is not full and contains a value check if value exist
                 insert(memframe, pageval);
-                printf("STEP %d :\t", fault_count + 1);
                 insert(LRU, pageval);
-                printStep(memframe, fsize);
+
+                // To Print the Step of the Page Fault
+                printf("STEP %d\t:\t", fault_count + 1);
+                printStep(memframe, no_of_frames);
             }else{
                 // WHen frames have been filled up to maximum
-                int indexofobj = getIndex(memframe, get(LRU,0));
-                replace(memframe, pageval, indexofobj);
 
-                printf("STEP %d :\t", fault_count + 1);
+                int indexofobj = getIndex(memframe, get(LRU,0));
+
+                // Replace the value at the page with Least Recently Used in the Memory
+                replace(memframe, indexofobj, pageval);
+
+                // Get the First Value in the LRU LINKEDLIST and delete it
+                // Then Insert the new page value at the end of the LINKEDLISt
                 indexofobj = getIndex(LRU, get(LRU,0));
                 delete(LRU,indexofobj);
                 insert(LRU, pageval);
-                printStep(memframe, fsize);
+
+                // To Print the Step of the Page Fault
+                printf("STEP %d\t:\t", fault_count + 1);
+                printStep(memframe, no_of_frames);
             }
             fault_count++;
         }else{
             // If value exist in memory
+
+            // Change the Order Of the LEAST RECENTLY USED LINKEDLIST
             delete(LRU,getIndex(LRU, pageval));
             insert(LRU, pageval);
         }
@@ -52,6 +66,7 @@ void LRUPageReplacement(LinkedList *data, int fsize) {
     temp = NULL;// UNLINK
     EmptyList(LRU);
     EmptyList(memframe);
+    free(LRU);
     free(memframe);
 }
 

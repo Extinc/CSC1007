@@ -4,6 +4,7 @@
 
 #include "LinkedList.h"
 
+//Insert Value into LinkedList at the end
 void insert(LinkedList *list, int value) {
     struct Node *newnode;
     newnode = (struct Node *) malloc(sizeof(struct Node));
@@ -17,14 +18,13 @@ void insert(LinkedList *list, int value) {
 
     }else{
         // If LinkedList is not empty
-       list->tail->next = newnode;
+        list->tail->next = newnode;
     }
     list->tail = newnode;
 }
 
-
-// pos : index of where it should be inserted
-void insertAt(LinkedList *list, int pos, int value) {
+// Insert Value into Linkedlist at specific index
+void insertAt(LinkedList *list, int index, int value) {
     struct Node *node;
     node = (struct Node *) malloc(sizeof(struct Node));
     struct Node *curr = list->head;
@@ -33,12 +33,12 @@ void insertAt(LinkedList *list, int pos, int value) {
     node->next = NULL;
     int count = -1;
     while (curr->next != NULL){
-        if (pos == 0){
+        if (index == 0){
             node->next = curr;
             list->head = node;
             break;
         }else{
-            if(count < pos - 2 || count > pos - 2){
+            if(count < index - 2 || count > index - 2){
                 curr = curr->next;
             }else{
                 node->next = curr->next;
@@ -50,7 +50,8 @@ void insertAt(LinkedList *list, int pos, int value) {
 
 }
 
-void delete(LinkedList *list, int pos) {
+// Delete node at index
+void delete(LinkedList *list, int index) {
     if(list->head == NULL){
         return;
     }
@@ -62,14 +63,14 @@ void delete(LinkedList *list, int pos) {
     int i;
 
 
-    if(pos == 0){
+    if(index == 0){
         node =list->head;
         list->head = list->head->next;
         free(node);
         return;
     }
 
-    for(i = 0; temp != NULL && i < pos - 1; i++){
+    for(i = 0; temp != NULL && i < index - 1; i++){
         temp = temp->next;
     }
 
@@ -84,11 +85,21 @@ void delete(LinkedList *list, int pos) {
 
 }
 
+// Replace value at specific Index of the node
+// value - new value that will be used to replace the old value at index
+void replace(LinkedList *list, int index, int value) {
+    struct Node *node;
+    node = list->head;
+    int count = 0;
+    while(node != NULL){
+        if(count == index){
+            node->data = value;
+        }
+        count++;
+        node = node->next;
+    }
 
-int isEmpty(struct Node *head) {
-    return 0;
 }
-
 void EmptyList(LinkedList *list) {
 
 
@@ -106,7 +117,13 @@ void EmptyList(LinkedList *list) {
     }
 
 }
+// END LINKEDLIST MODIFICATION FUNCTIONS
 
+// START LINKEDLIST DATA RETRIEVAL FUNCTIONS
+
+// Search for value
+// Returns index if found
+// Returns -1 if not found
 int search(LinkedList *list, int searchval) {
     struct Node *node;
     node = list->head;
@@ -121,13 +138,14 @@ int search(LinkedList *list, int searchval) {
     return -1;
 }
 
-int get(LinkedList *list, int pos) {
+// Retrieve the value at the specific Index
+int get(LinkedList *list, int index) {
     struct Node *node;
     node = list->head;
 
     int count = 0;
     while (node != NULL){
-        if(count == pos){
+        if(count == index){
             return node->data;
         }
         node = node->next;
@@ -135,6 +153,8 @@ int get(LinkedList *list, int pos) {
     }
     return -1;
 }
+
+// Retrieve the index of the specific value
 int getIndex(LinkedList *list, int value) {
     if(list->head == NULL){
         return -1;
@@ -153,6 +173,8 @@ int getIndex(LinkedList *list, int value) {
     }
     return -1;
 }
+
+// Retrieve the Size of the LinkedList
 int getSize(LinkedList *list) {
     struct Node *node;
     node = list->head;
@@ -163,6 +185,10 @@ int getSize(LinkedList *list) {
     }
     return count;
 }
+
+// END LINKEDLIST DATA RETRIEVAL FUNCTIONS
+
+// START LINKEDLIST DATA PRINTING FUNCTIONS
 // PRINTING OF LINKEDLIST
 void printList(LinkedList *list)
 {
@@ -173,7 +199,7 @@ void printList(LinkedList *list)
     }
     printf("\n");
 }
-void printStep(LinkedList *list, int framesize) {
+void printStep(LinkedList *list, int no_of_frames) {
 
     struct Node *node = list->head;
     int count = 0;
@@ -183,25 +209,13 @@ void printStep(LinkedList *list, int framesize) {
         count++;
     }
 
-    while (count < framesize){
+    while (count < no_of_frames){
         printf("%d\t", -1);
         count++;
     }
     printf("\n");
 }
+// END LINKEDLIST DATA PRINTING FUNCTIONS
 
-void replace(LinkedList *list, int value, int index) {
-    struct Node *node;
-    node = list->head;
-    int count = 0;
-    while(node != NULL){
-        if(count == index){
-            node->data = value;
-        }
-        count++;
-        node = node->next;
-    }
-
-}
 
 
