@@ -58,3 +58,4 @@ CMakeLists.txt
 Test.c
 temptest1.c
 input.txt
+.vscode
