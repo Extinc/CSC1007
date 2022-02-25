@@ -7,9 +7,10 @@
 void FIFOPageReplacement(LinkedList *data, int fsize) {
     struct Node *temp = data->head;
     LinkedList *memframe = malloc(sizeof(LinkedList)); // memory frame
-    int i, pageval, fault_count = 0; //page value, total fault
+    int FI = 0; // To store and check for First
+    int pageval, fault_count = 0; //page value, total fault
     int size, exist; //size of frame, if the thing exist
-    i = 0;
+    
     while (temp != NULL){
         pageval = temp->data;
 
@@ -25,16 +26,20 @@ void FIFOPageReplacement(LinkedList *data, int fsize) {
                 printStep(memframe, fsize);
             }else{
                 // WHen frames have been filled up to maximum
-                delete(memframe,0);
-                insert(memframe, pageval);
+                replace(memframe,pageval,FI);
                 printf("STEP %d :\t", fault_count + 1);
                 printStep(memframe, fsize);
+                if (FI < 3){
+                    FI++;
+                } else{
+                    FI =0;
+                }
             }
             fault_count++;
         }else{
             // If value exist in memory
         }
-        i++;
+        
         temp = temp->next;
     }
 
