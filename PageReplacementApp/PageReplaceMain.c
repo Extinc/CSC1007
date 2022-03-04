@@ -40,7 +40,7 @@ int main() {
     if (options == 1){
         FIFOPageReplacement(refll, no_of_frames);
     }else if(options == 2){
-
+        OptimalPageReplacement(refll, no_of_frames);
     }else if(options == 3){
         LRUPageReplacement(refll, no_of_frames);
     }
