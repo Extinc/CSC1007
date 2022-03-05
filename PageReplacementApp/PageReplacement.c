@@ -62,7 +62,7 @@ void LRUPageReplacement(LinkedList *data, int no_of_frames) {
 
 
     printf("\n");
-    printf("Number of Fault : %d ",fault_count);
+    printf("There are %d page faults in this page replacement process",fault_count);
     temp = NULL;// UNLINK
     EmptyList(LRU);
     EmptyList(memframe);
