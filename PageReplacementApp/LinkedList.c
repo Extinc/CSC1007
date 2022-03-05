@@ -114,11 +114,10 @@ void replace(LinkedList *list, int index, int value) {
 void EmptyList(LinkedList *list) {
 
 
-    struct Node *temp_head, *temp_tail, *node;
+    struct Node *temp_head, *node;
 
     // Store the head
     temp_head = list->head;
-    temp_tail = list->tail;
     int i;
 
     if(list != NULL){
