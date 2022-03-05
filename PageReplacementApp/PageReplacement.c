@@ -8,6 +8,8 @@ void LRUPageReplacement(LinkedList *data, int no_of_frames) {
     struct Node *temp = data->head;
     LinkedList *LRU = malloc(sizeof(LinkedList)); // To store and check for Least Recently Used
     LinkedList *memframe = malloc(sizeof(LinkedList));
+    LRU->head = NULL;
+    memframe->head = NULL;
     int i, pageval, fault_count = 0;
     int size, exist;
     i = 0;

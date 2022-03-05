@@ -10,7 +10,7 @@
 
 int main();
 int main() {
-    char size[MAX] =  {};
+    char size[MAX] = "";
     char *refStr = size;
     int options = 0;
     int no_of_frames = 0, i;
@@ -21,7 +21,7 @@ int main() {
     printf("\t2. Optimal page replacement algorithm\n");
     printf("\t3. Least recently used (LRU) page replacement algorithm\n");
     printf("Enter the options (1, 2 or 3): ");
-
+    refll->head = NULL;
     scanf("%d", &options);
     fflush(stdin);
 

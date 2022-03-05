@@ -14,7 +14,6 @@ struct Node{
 
 typedef struct {
     struct Node *head;
-    struct Node *tail;
 }LinkedList;
 
 //Insert Value into LinkedList at the end

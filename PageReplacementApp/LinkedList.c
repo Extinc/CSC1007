@@ -6,21 +6,32 @@
 
 //Insert Value into LinkedList at the end
 void insert(LinkedList *list, int value) {
-    struct Node *newnode;
-    newnode = (struct Node *) malloc(sizeof(struct Node));
-
-    newnode->data = value;
-    newnode->next = NULL;
-
-    if(list->head == NULL){
-        // If LinkedList is empty
-        list->head = newnode;
-
-    }else{
-        // If LinkedList is not empty
-        list->tail->next = newnode;
+    /* 1. allocate node */
+    struct Node* new_node = (struct Node*) malloc(sizeof(struct Node));
+ 
+    struct Node *last = list->head;  /* used in step 5*/
+ 
+    /* 2. put in the data  */
+    new_node->data  = value;
+ 
+    /* 3. This new node is going to be the last node, so make next of
+          it as NULL*/
+    new_node->next = NULL;
+ 
+    /* 4. If the Linked List is empty, then make the new node as head */
+    if (list->head == NULL)
+    {
+       list->head = new_node;
+       return;
     }
-    list->tail = newnode;
+ 
+    /* 5. Else traverse till the last node */
+    while (last->next != NULL)
+        last = last->next;
+ 
+    /* 6. Change the next of last node */
+    last->next = new_node;
+    return;
 }
 
 // Insert Value into Linkedlist at specific index
