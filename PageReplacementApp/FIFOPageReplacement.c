@@ -7,6 +7,7 @@
 void FIFOPageReplacement(LinkedList *data, int fsize) {
     struct Node *temp = data->head;
     LinkedList *memframe = malloc(sizeof(LinkedList)); // memory frame
+    memframe->head = NULL;
     int FI = 0; // To store and check for First
     int pageval, fault_count = 0; //page value, total fault
     int size, exist; //size of frame, if the thing exist
@@ -45,7 +46,7 @@ void FIFOPageReplacement(LinkedList *data, int fsize) {
 
 
     printf("\n");
-    printf("Number of Fault : %d ",fault_count);
+    printf("There are %d page faults in this page replacement process",fault_count);
     temp = NULL;// UNLINK
     EmptyList(memframe);
     free(memframe);
