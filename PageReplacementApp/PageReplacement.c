@@ -19,7 +19,7 @@ void LRUPageReplacement(LinkedList *data, int no_of_frames) {
         pageval = temp->data;
 
         // Search for the value to check if it exist in the Memory Frame
-        exist = search(memframe, pageval);
+        exist = getIndex(memframe, pageval);
         if(exist == -1){
             // Value does not exist in memory
             // Get the size of memory frame filled

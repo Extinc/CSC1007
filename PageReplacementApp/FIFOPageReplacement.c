@@ -15,7 +15,7 @@ void FIFOPageReplacement(LinkedList *data, int fsize) {
     while (temp != NULL){
         pageval = temp->data;
 
-        exist = search(memframe, pageval);
+        exist = getIndex(memframe, pageval);
         if(exist == -1){
             // Value does not exist in memory
             // Get the size of memory frame filled
