@@ -12,8 +12,7 @@ int main();
 int main() {
     char size[MAX] = "";
     char *refStr = size;
-    int options = 0;
-    int no_of_frames = 0, i;
+    int options = 0, no_of_frames = 0, i;
     LinkedList *refll = malloc(sizeof(LinkedList));
     printf("Please choose a Page Replacement Algorithm\n");
     printf("Options: \n");
@@ -30,7 +29,7 @@ int main() {
     fflush(stdin);
 
     printf("Enter the reference list : ");
-    fgets(refStr, sizeof(size), stdin);
+    fgets(refStr, MAX, stdin);
 
     for(i = 0; i < strlen(refStr); i++){
         if(*(refStr + i) >= 48 && *(refStr + i) <= 57) {

@@ -10,9 +10,9 @@ void LRUPageReplacement(LinkedList *data, int no_of_frames) {
     LinkedList *memframe = malloc(sizeof(LinkedList));
     LRU->head = NULL;
     memframe->head = NULL;
-    int i, pageval, fault_count = 0;
+    int pageval, fault_count = 0;
     int size, exist;
-    i = 0;
+    int i = 0;
 
     // Loop through the LINKEDLIST
     while (temp != NULL){

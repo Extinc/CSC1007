@@ -37,10 +37,7 @@ void FIFOPageReplacement(LinkedList *data, int fsize) {
                 }
             }
             fault_count++;
-        }else{
-            // If value exist in memory
         }
-        
         temp = temp->next;
     }
 

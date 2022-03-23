@@ -131,23 +131,6 @@ void EmptyList(LinkedList *list) {
 
 // START LINKEDLIST DATA RETRIEVAL FUNCTIONS
 
-// Search for value
-// Returns index if found
-// Returns -1 if not found
-int search(LinkedList *list, int searchval) {
-    struct Node *node;
-    node = list->head;
-    int count = 0;
-    while (node != NULL){
-        if (node->data == searchval){
-            return count;
-        }
-        node = node->next;
-        count++;
-    }
-    return -1;
-}
-
 // Retrieve the value at the specific Index
 int get(LinkedList *list, int index) {
     struct Node *node;
@@ -164,8 +147,34 @@ int get(LinkedList *list, int index) {
     return -1;
 }
 
-// Retrieve the index of the specific value
+// Retrieve the first index of the specific value
 int getIndex(LinkedList *list, int value) {
+    return getIndexFromSI(list, 0, value);
+}
+
+// Retrieve the first index starting from specific index of the linked list
+int getIndexFromSI(LinkedList *list, int startindex, int value) {
+    if(list->head == NULL){
+        return -1;
+    }
+
+    struct Node *node;
+    node = list->head;
+
+    int index = 0;
+    int lastidx = -1;
+    while (node != NULL){
+        if(node->data == value && index >= startindex){
+            return index;
+        }
+        node = node->next;
+        index++;
+    }
+    return -1;
+}
+
+// To count the number of appearance of value starting from a specific index of the linkedlist
+int countFrom(LinkedList *list, int startindex, int value) {
     if(list->head == NULL){
         return -1;
     }
@@ -174,15 +183,17 @@ int getIndex(LinkedList *list, int value) {
     node = list->head;
 
     int count = 0;
+    int index = -1;
     while (node != NULL){
-        if(node->data == value){
-            return count;
+        if(node->data == value && index >= startindex){
+            count++;
         }
         node = node->next;
-        count++;
+        index++;
     }
-    return -1;
+    return count;
 }
+
 
 // Retrieve the Size of the LinkedList
 int getSize(LinkedList *list) {

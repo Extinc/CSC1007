@@ -32,17 +32,17 @@ void replace(LinkedList *list, int index, int value);
 // Used to Empty & free all the nodes
 void EmptyList(LinkedList *list);
 
-// Search for a value inside the linkedlist and return the index
-int search(LinkedList *list, int searchval);
-
 // Get the Size of LinkedList
 int getSize(LinkedList *list);
 
 // Get the value at a specific index within the LinkedList
 int get(LinkedList *list, int index);
 
-// Get the index of specific value
+// Get the first index of specific value
 int getIndex(LinkedList *list, int value);
+
+// Get the first index from linkedlist with specifc starting index
+int getIndexFromSI(LinkedList *list, int startindex, int value);
 
 // printList is used to print the List
 void printList(LinkedList *list);
