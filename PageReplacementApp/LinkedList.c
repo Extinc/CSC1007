@@ -6,38 +6,38 @@
 
 //Insert Value into LinkedList at the end
 void insert(LinkedList *list, int value) {
-    /* 1. allocate node */
+    // allocate memory to the node
     struct Node* new_node = (struct Node*) malloc(sizeof(struct Node));
+
+    // This will be used at step 5
+    struct Node *last = list->head;
  
-    struct Node *last = list->head;  /* used in step 5*/
- 
-    /* 2. put in the data  */
+    // add the data to newly created node
     new_node->data  = value;
  
-    /* 3. This new node is going to be the last node, so make next of
-          it as NULL*/
+    // This new node is going to be the last node, so make next of it be NULL
     new_node->next = NULL;
- 
-    /* 4. If the Linked List is empty, then make the new node as head */
+
+    // If the Linked List is empty, then make the new node as head
     if (list->head == NULL)
     {
        list->head = new_node;
        return;
     }
- 
-    /* 5. Else traverse till the last node */
-    while (last->next != NULL)
+
+    // If not Empty traverse till the last node
+    while (last->next != NULL){
         last = last->next;
- 
-    /* 6. Change the next of last node */
+    }
+
+    // Insert in the new new node to the end of the linked list
     last->next = new_node;
-    return;
 }
 
 // Insert Value into Linkedlist at specific index
 void insertAt(LinkedList *list, int index, int value) {
-    struct Node *node;
-    node = (struct Node *) malloc(sizeof(struct Node));
+    // 1. allocate memory to the node
+    struct Node *node = (struct Node *) malloc(sizeof(struct Node));
     struct Node *curr = list->head;
 
     node->data = value;
@@ -118,8 +118,7 @@ void EmptyList(LinkedList *list) {
 
     // Store the head
     temp_head = list->head;
-    int i;
-
+    
     if(list != NULL){
         while (list->head != NULL){
             delete(list, 0);
@@ -162,7 +161,6 @@ int getIndexFromSI(LinkedList *list, int startindex, int value) {
     node = list->head;
 
     int index = 0;
-    int lastidx = -1;
     while (node != NULL){
         if(node->data == value && index >= startindex){
             return index;
@@ -172,28 +170,6 @@ int getIndexFromSI(LinkedList *list, int startindex, int value) {
     }
     return -1;
 }
-
-// To count the number of appearance of value starting from a specific index of the linkedlist
-int countFrom(LinkedList *list, int startindex, int value) {
-    if(list->head == NULL){
-        return -1;
-    }
-
-    struct Node *node;
-    node = list->head;
-
-    int count = 0;
-    int index = -1;
-    while (node != NULL){
-        if(node->data == value && index >= startindex){
-            count++;
-        }
-        node = node->next;
-        index++;
-    }
-    return count;
-}
-
 
 // Retrieve the Size of the LinkedList
 int getSize(LinkedList *list) {

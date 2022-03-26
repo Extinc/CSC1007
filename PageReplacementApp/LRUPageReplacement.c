@@ -2,7 +2,7 @@
 // Created by LIM KEI YIANG on 22/2/22.
 //
 
-#include "PageReplacement.h"
+#include "LRUPageReplacement.h"
 
 void LRUPageReplacement(LinkedList *data, int no_of_frames) {
     struct Node *temp = data->head;

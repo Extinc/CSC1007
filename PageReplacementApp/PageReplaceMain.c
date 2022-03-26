@@ -5,7 +5,7 @@
 #include "string.h"
 #include "FIFOPageReplacement.h"
 #include "OptimalPageReplacement.h"
-#include "PageReplacement.h"
+#include "LRUPageReplacement.h"
 #define MAX 200
 
 int main();
@@ -13,6 +13,8 @@ int main() {
     char size[MAX] = "";
     char *refStr = size;
     int options = 0, no_of_frames = 0, i;
+
+    // Allocate Memory for Reference LinkedList
     LinkedList *refll = malloc(sizeof(LinkedList));
     printf("Please choose a Page Replacement Algorithm\n");
     printf("Options: \n");
@@ -45,7 +47,6 @@ int main() {
     }
 
     EmptyList(refll);
-
     free(refll);
     return 0;
 }
