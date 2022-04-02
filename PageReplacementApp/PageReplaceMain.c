@@ -6,9 +6,11 @@
 #include "FIFOPageReplacement.h"
 #include "OptimalPageReplacement.h"
 #include "LRUPageReplacement.h"
+
 #define MAX 200
 
 int main();
+
 int main() {
     char size[MAX] = "";
     char *refStr = size;
@@ -33,20 +35,24 @@ int main() {
     printf("Enter the reference list : ");
     fgets(refStr, MAX, stdin);
 
-    for(i = 0; i < strlen(refStr); i++){
-        if(*(refStr + i) >= 48 && *(refStr + i) <= 57) {
-            insert(refll,(int) (*(refStr + i) - '0'));
+    for (i = 0; i < strlen(refStr); i++) {
+        if (*(refStr + i) >= 48 && *(refStr + i) <= 57) {
+            insert(refll, (int) (*(refStr + i) - '0'));
         }
     }
-    if (options == 1){
+    if (options == 1) {
         FIFOPageReplacement(refll, no_of_frames);
-    }else if(options == 2){
+    } else if (options == 2) {
         OptimalPageReplacement(refll, no_of_frames);
-    }else if(options == 3){
+    } else if (options == 3) {
         LRUPageReplacement(refll, no_of_frames);
     }
 
     EmptyList(refll);
     free(refll);
+
+    // To prevent non-persistent console from exiting the program immediately
+    printf("\nPress ENTER key to end\n");
+    getchar();
     return 0;
 }

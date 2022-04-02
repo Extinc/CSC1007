@@ -1,4 +1,4 @@
-obj-m += loadmod.o
+obj-m += MessageDev.o
 all:
 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
 clean:

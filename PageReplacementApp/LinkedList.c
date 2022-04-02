@@ -36,19 +36,26 @@ void insert(LinkedList *list, int value) {
 
 // Insert Value into Linkedlist at specific index
 void insertAt(LinkedList *list, int index, int value) {
-    // 1. allocate memory to the node
+    // allocate memory to the node
     struct Node *node = (struct Node *) malloc(sizeof(struct Node));
+
+    // current node
     struct Node *curr = list->head;
 
     node->data = value;
     node->next = NULL;
     int count = -1;
+
+    // Loop through the linkedlist
     while (curr->next != NULL){
+
         if (index == 0){
+            // insert at head if index is zero
             node->next = curr;
             list->head = node;
             break;
         }else{
+            // traverse to the index of the and insert
             if(count < index - 2 || count > index - 2){
                 curr = curr->next;
             }else{
@@ -63,6 +70,7 @@ void insertAt(LinkedList *list, int index, int value) {
 
 // Delete node at index
 void delete(LinkedList *list, int index) {
+    // Return if list is empty
     if(list->head == NULL){
         return;
     }
@@ -73,7 +81,7 @@ void delete(LinkedList *list, int index) {
     temp = list->head;
     int i;
 
-
+    // delete head if index is 0
     if(index == 0){
         node =list->head;
         list->head = list->head->next;
@@ -111,6 +119,8 @@ void replace(LinkedList *list, int index, int value) {
     }
 
 }
+
+// To remove everything from the linkedlist
 void EmptyList(LinkedList *list) {
 
 
@@ -118,11 +128,9 @@ void EmptyList(LinkedList *list) {
 
     // Store the head
     temp_head = list->head;
-    
-    if(list != NULL){
-        while (list->head != NULL){
-            delete(list, 0);
-        }
+
+    while (list->head != NULL) {
+        delete(list, 0);
     }
 
 }
