@@ -7,10 +7,10 @@ Q1. KERNEL MODULE & C program to communicate<br/>
 Q2. C Program for Page Replacement Algorithm<br/>
 
 **Folder**
-<br>KERNEL Folder
+<br>**KERNEL Folder**
 <br>Consist of Device Driver & User application to communicate between each other.
 
-**MessageDev**
+MessageDev
 <br> - Loadable Kernel Module
 <br> MessageClient.c
 <br> - User Application to write message into kernel space / read message from kernel space
