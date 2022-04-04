@@ -1,21 +1,21 @@
 # CSC1007 Operating System
 
-Coursework 2022
+**Coursework 2022**
 
-Features Required:<br/>
+**Features Required:**<br/>
 Q1. KERNEL MODULE & C program to communicate<br/>
 Q2. C Program for Page Replacement Algorithm<br/>
 
-Folder
+**Folder**
 <br>KERNEL Folder
 <br>Consist of Device Driver & User application to communicate between each other.
 
-MessageDev
+**MessageDev**
 <br> - Loadable Kernel Module
 <br> MessageClient.c
 <br> - User Application to write message into kernel space / read message from kernel space
 
-PageReplacementApp
+**PageReplacementApp**
 
 Data Structure used for the app : LINKEDLIST
 
