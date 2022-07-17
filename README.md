@@ -28,3 +28,5 @@ Below is a screenshot of how the application looks like at start
 ## Additional Info
 
 Screenshot of Results can be found in the wiki
+
+Final Report is also within the repository
